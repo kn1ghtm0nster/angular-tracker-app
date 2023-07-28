@@ -10,4 +10,9 @@ export class HeaderComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  // keeping track of new tasks that are added on the page from child button component.
+  toggleAddTask(): void {
+    console.log('toggle');
+  }
 }
