@@ -1,17 +1,19 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 import { Task } from '../interfaces/Task';
-import { TASKS } from '../mock-tasks';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TaskService {
-  constructor() {}
+  // NOTE: This is using the proxy.conf.json file to resolve CORS browser issues -> https://stackoverflow.com/questions/66288953/angular-blocked-by-cors-policy-the-access-control-allow-origin-header-conta
+  private apiUrl: string = '/api';
+
+  constructor(private http: HttpClient) {}
 
   getTasks(): Observable<Task[]> {
-    const tasks = of(TASKS);
-    return tasks;
+    return this.http.get<Task[]>(`${this.apiUrl}/tasks`);
   }
 }
