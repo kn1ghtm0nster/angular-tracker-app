@@ -17,6 +17,12 @@
       "text": "Food Shopping",
       "day": "May 7th at 12:30pm",
       "reminder": false
+    },
+    {
+      "text": "Go Outside",
+      "day": "July 31",
+      "reminder": false,
+      "id": 4
     }
   ]
 }
